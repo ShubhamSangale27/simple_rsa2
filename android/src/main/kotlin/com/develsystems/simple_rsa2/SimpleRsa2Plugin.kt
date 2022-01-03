@@ -168,7 +168,7 @@ public class SimpleRsa2Plugin: FlutterPlugin, MethodCallHandler {
 
   @Throws(GeneralSecurityException::class)
   private fun loadPrivateKey(privateKey: String): PrivateKey {
-    val clear = Base64.decode(privateKey, Base64.DEFAULT)
+    val clear = Base64.decode(privateKey, Base64.NO_WRAP)
     val keySpec = PKCS8EncodedKeySpec(clear)
     val fact = KeyFactory.getInstance("RSA")
     val priv = fact.generatePrivate(keySpec)
