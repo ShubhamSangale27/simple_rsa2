@@ -180,7 +180,7 @@ public class SimpleRsa2Plugin: FlutterPlugin, MethodCallHandler {
   private fun decryptData(encryptedBytes: ByteArray, privateKey: String): String {
     val cipher1 = Cipher.getInstance("RSA/ECB/PKCS1PADDING")
     cipher1.init(Cipher.DECRYPT_MODE, loadPrivateKey(privateKey))
-    val decryptedBytes = cipher1.doFinal(encryptedBytes)
+    val decryptedBytes = cipher1.doFinal(encryptedBytes,"UTF-8")
     return String(decryptedBytes)
   }
 
