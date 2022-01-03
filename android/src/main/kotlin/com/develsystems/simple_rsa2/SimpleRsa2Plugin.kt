@@ -66,7 +66,7 @@ public class SimpleRsa2Plugin: FlutterPlugin, MethodCallHandler {
         val privateKey = call.argument<String>("privateKey")
         if (text != null && privateKey != null) {
           try {
-            val d = Base64.decode(text, Base64.NO_WRAP)
+            val d = Base64.getDecoder().decode(text)
             val output = decryptData(d, privateKey)
             result.success(output)
           } catch (e: java.lang.Exception) {
